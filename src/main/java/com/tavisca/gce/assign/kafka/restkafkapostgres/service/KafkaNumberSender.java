@@ -10,11 +10,11 @@ public class KafkaNumberSender {
     @Autowired
     KafkaTemplate<String, String> kafkaTemplate;
 
-    @Value("${topic.number}")
-    private  String numberTopic;
+    @Value("${topic.name}")
+    private  String topicName;
 
     public void send(int number){
-        kafkaTemplate.send(numberTopic, String.valueOf(number));
+        kafkaTemplate.send(topicName, String.valueOf(number));
     }
 
 }

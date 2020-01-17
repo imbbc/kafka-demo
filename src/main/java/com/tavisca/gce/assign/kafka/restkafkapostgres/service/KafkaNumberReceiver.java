@@ -10,7 +10,7 @@ public class KafkaNumberReceiver {
     @Autowired
     NumberService numberService;
 
-    @KafkaListener(topics = "${topic.number}")
+    @KafkaListener(topics = "${topic.name}")
     void listen(String message) {
         int value = Integer.parseInt(message);
         numberService.save(value + 1);

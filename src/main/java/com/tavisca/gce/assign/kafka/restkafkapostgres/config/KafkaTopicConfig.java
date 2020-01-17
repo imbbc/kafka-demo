@@ -16,8 +16,8 @@ public class KafkaTopicConfig {
     @Value("${bootstrap.servers}")
     private String bootstrapServers;
 
-    @Value(("${topic.number}"))
-    private String numberTopic;
+    @Value(("${topic.name}"))
+    private String topicName;
 
     @Bean
     public KafkaAdmin kafkaAdmin() {
@@ -28,6 +28,6 @@ public class KafkaTopicConfig {
 
     @Bean
     public NewTopic numberTopic() {
-        return new NewTopic(numberTopic, 1, (short) 1);
+        return new NewTopic(topicName, 1, (short) 1);
     }
 }
