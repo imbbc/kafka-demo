@@ -1,4 +1,4 @@
 FROM adoptopenjdk/openjdk11:latest
-RUN mkdir /number_app
-COPY build/libs/*.jar /number_app/app.jar
-ENTRYPOINT ["java","-jar","/numberApp/app.jar"]
+WORKDIR  /var/number_app
+COPY build/libs/*.jar ./app.jar
+ENTRYPOINT ["java","-jar","app.jar"]
